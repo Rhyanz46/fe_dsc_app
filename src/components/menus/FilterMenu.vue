@@ -42,7 +42,6 @@ export default {
     },
     methods: {
         switch_modal: function(field){
-            console.log(this.selected, this.field)
             if(this.modal == false){
                 this.selected = field
             }

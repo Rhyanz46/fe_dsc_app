@@ -3,17 +3,17 @@
         <div class="container">
             <div class="wrapper-center">
                 <div class="btn-container wrapper-center">
-                    <div ref="btn_filter" class="btn-menus btn-filter wrapper-center" @click="change_state('menu','filter')">
+                    <div ref="btn_filter" class="btn-menus btn-filter wrapper-center" @click="change_menu('menu','filter')">
                         <font-awesome-icon icon="filter" size="lg"/> 
                     </div>
                 </div>
                 <div class="btn-container wrapper-center">
-                    <div ref="btn_upload" class="btn-menus btn-upload wrapper-center" @click="change_state('upload_menu', !upload_menu)">
+                    <div ref="btn_upload" class="btn-menus btn-upload wrapper-center" @click="change_menu('upload_menu', !upload_menu)">
                         <font-awesome-icon icon="file-upload" size="2x"/> 
                     </div>
                 </div>
                 <div class="btn-container wrapper-center">
-                    <div ref="btn_menu" class="btn-menus btn-menu wrapper-center" @click="change_state('menu','common')">
+                    <div ref="btn_menu" class="btn-menus btn-menu wrapper-center" @click="change_menu('menu','common')">
                         <font-awesome-icon icon="bars" size="lg"/> 
                     </div>
                 </div>
@@ -44,7 +44,12 @@ export default {
         }
     },
     methods: {
-        change_state: function(key, value){
+        change_menu: function(key, value){
+            if(typeof value == 'boolean'){
+                if(this.upload_menu == false){
+                    this.$children[0].modal = false
+                }
+            }
             this.change_active_menu_style(value)
             this.$change_state(this, key, value)
         },
