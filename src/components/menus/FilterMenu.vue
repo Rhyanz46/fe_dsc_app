@@ -2,28 +2,66 @@
     <div>
         <div class="sub-menu wrapper-center">
             <div class="menus-container">
-                <div class="filter-list wrapper-center">Kabupaten</div>
-                <div class="filter-list wrapper-center">Supervisor</div>
+                <div class="filter-list wrapper-center" @click="switch_modal('kabupaten')">Kabupaten</div>
+                <div class="filter-list wrapper-center" @click="switch_modal('supervisor')">Supervisor</div>
             </div>
             <div class="menus-container">
-                <div class="filter-list wrapper-center">Kecamatan</div>
-                <div class="filter-list wrapper-center">Sales Force</div>
+                <div class="filter-list wrapper-center" @click="switch_modal('kecamatan')">Kecamatan</div>
+                <div class="filter-list wrapper-center" @click="switch_modal('sales_force')">Sales Force</div>
             </div>
             <div class="menus-container">
                 <div></div>
                 <div></div>
             </div>
             <div class="menus-container" >
-                <div class="filter-list wrapper-center">Kategori Outlet</div>
-                <div class="filter-list wrapper-center">Hari Kunjungan</div>
+                <div class="filter-list wrapper-center" @click="switch_modal('kategori_outlet')">Kategori Outlet</div>
+                <div class="filter-list wrapper-center" @click="switch_modal('hari_kunjungan')">Hari Kunjungan</div>
             </div>
             <div class="menus-container">
-                <div class="filter-list wrapper-center">Device</div>
-                <div class="filter-list wrapper-center">Retail</div>
+                <div class="filter-list wrapper-center" @click="switch_modal('device')">Device</div>
+                <div class="filter-list wrapper-center" @click="switch_modal('jenis_penjualan')">Retail</div>
             </div>
         </div>
+        <FilterModal v-if="modal" @switch_modal="switch_modal(null)" v-bind:selected="selected"/>
     </div> 
 </template>
+
+<script>
+import FilterModal from "@/components/menus/filter/Modal";
+
+export default {
+    name: "FilterMenu",
+    components: {
+        FilterModal,
+    },
+    data: function (){
+        return {
+            modal: false,
+            selected: null
+        }
+    },
+    methods: {
+        switch_modal: function(field){
+            console.log(this.selected, this.field)
+            if(this.modal == false){
+                this.selected = field
+            }
+
+            if(this.selected == null){
+                this.selected = field
+            }
+
+            if(field != this.selected){
+                this.selected = field
+                return
+            }else{
+                this.modal = !this.modal
+                this.selected = field
+            }
+        }
+    }
+}
+</script>
 
 <style scoped>
 

@@ -4,10 +4,10 @@
             <div>Login</div>
             <div class="form wrapper-center">
                 <div>
-                    <input type="text" v-model="username"/>
+                    <input type="text" v-model="username" placeholder="username"/>
                 </div>
                 <div>
-                    <input type="password" v-model="password"/>
+                    <input type="password" v-model="password" @keyup.enter="login" placeholder="password"/>
                 </div>
                 <div>
                     <button @click="login">Login</button>
@@ -91,6 +91,18 @@ export default {
 }
 .form > div > input:nth-child(1){
     margin-bottom: 30px;
+}
+.form > div > button:nth-child(1){
+    width: 110px;
+    height: 27px;
+    left: 347px;
+    top: 240px;
+
+    background: #7C7C7C;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 22px;
+    border: none;
+    color: white;
 }
 textarea:focus, input:focus{
     outline: none;

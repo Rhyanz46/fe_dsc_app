@@ -3,16 +3,22 @@
         <div class="container">
             <div class="wrapper-center">
                 <div class="btn-container wrapper-center">
-                    <div class="btn-menus btn-filter" @click="change_state('menu','filter')"></div>
+                    <div ref="btn_filter" class="btn-menus btn-filter wrapper-center" @click="change_state('menu','filter')">
+                        <font-awesome-icon icon="filter" size="lg"/> 
+                    </div>
                 </div>
                 <div class="btn-container wrapper-center">
-                    <div class="btn-menus btn-upload" @click="change_state('upload_menu', !upload_menu)"></div>
+                    <div ref="btn_upload" class="btn-menus btn-upload wrapper-center" @click="change_state('upload_menu', !upload_menu)">
+                        <font-awesome-icon icon="file-upload" size="2x"/> 
+                    </div>
                 </div>
                 <div class="btn-container wrapper-center">
-                    <div class="btn-menus btn-menu" @click="change_state('menu','common')"></div>
+                    <div ref="btn_menu" class="btn-menus btn-menu wrapper-center" @click="change_state('menu','common')">
+                        <font-awesome-icon icon="bars" size="lg"/> 
+                    </div>
                 </div>
             </div>
-        </div>
+        </div>  
         <FilterMenu v-if="menu == 'filter'"/>
         <CommonMenu v-if="menu == 'common'"/>
         <ModalUploadMenu v-if="upload_menu"/>
@@ -39,8 +45,33 @@ export default {
     },
     methods: {
         change_state: function(key, value){
+            this.change_active_menu_style(value)
             this.$change_state(this, key, value)
+        },
+        change_active_menu_style: function(value){
+            this.$refs.btn_filter.style.color = "#868686"
+            this.$refs.btn_menu.style.color = "#868686"
+            this.$refs.btn_upload.style.color = "#868686"
+            if(value == 'filter'){
+                this.$refs.btn_filter.style.color = "#704848"
+            }else if(value == 'common'){
+                this.$refs.btn_menu.style.color = "#704848"
+            }else{
+                if (this.upload_menu){
+                    this.$refs.btn_upload.style.color = "#868686"
+                    if(this.menu == 'filter'){
+                        this.$refs.btn_filter.style.color = "#704848"
+                    }else{
+                        this.$refs.btn_menu.style.color = "#704848"
+                    }
+                }else{
+                    this.$refs.btn_upload.style.color = "#704848"
+                }
+            }
         }
+    },
+    mounted: function(){
+        this.change_active_menu_style(this.menu)
     }
 }
 </script>
@@ -126,10 +157,12 @@ export default {
 }
 
 .btn-menus{
+    align-items: center !important;
     cursor: pointer;
     top: 18px;
     position: relative;
     background: #ACACAC;
+    color: #868686;
     box-shadow: 0px 2px 11px -1px rgba(0,0,0,0.75);
 }
 
@@ -151,6 +184,10 @@ export default {
     width: 50px;
     height: 50px;
     border-radius: 25px;
+}
+
+.btn-menus:hover{
+    color: #704848;
 }
 
 </style>
