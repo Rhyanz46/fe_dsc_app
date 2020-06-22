@@ -62,7 +62,7 @@ export default {
 input[type=date] {
   height: 35px;
   margin: 0 auto;
-  width: 100%;
+  width: 96%;
   font-family: arial, sans-serif;
   font-size: 18px;
   font-weight: bold;
