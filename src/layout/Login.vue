@@ -1,8 +1,10 @@
 <template>
     <div class="container wrapper-center">
         <div>
-            <div>Login</div>
+            <div class="top-line"></div>
             <div class="form wrapper-center">
+                <div class="label">Login</div>
+                <hr class="line"/>
                 <div>
                     <input type="text" v-model="username" placeholder="username"/>
                 </div>
@@ -13,7 +15,7 @@
                     <button @click="login">Login</button>
                 </div>
             </div>
-            <div class="error">
+            <div class="error" v-if="error_show">
                 {{error}}
             </div>
         </div>
@@ -27,6 +29,7 @@ export default {
     name: "Login",
     data: function(){
         return {
+            error_show: false,
             error: "",
             username: "",
             password: ""
@@ -34,8 +37,13 @@ export default {
     },
     methods: {
         login: function(){
+            let error_time = 5000;
             if( this.username == "" || this.password == ""){
                 this.error = "masukkan username dan password"
+                this.error_show = true
+                setTimeout(()=>{
+                    this.error_show = false
+                }, error_time, this)
                 return
             }
             this.$axios.post(LOGIN,{
@@ -49,6 +57,10 @@ export default {
                 this.$router.replace({path: '/'})
             }).catch((err)=>{
                 this.error = err.response.data.message
+                this.error_show = true
+                setTimeout(()=>{
+                    this.error_show = false
+                }, error_time, this)
             })
         }
     }
@@ -56,6 +68,31 @@ export default {
 </script>
 
 <style scoped>
+textarea:focus, input:focus{
+    outline: none;
+}
+::-webkit-input-placeholder {
+   text-align: center;
+   color: #d4d4d4;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   text-align: center;  
+   color: #d4d4d4;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   text-align: center;  
+   color: #d4d4d4;
+}
+
+:-ms-input-placeholder {  
+   text-align: center; 
+   color: #d4d4d4;
+}
+
+/*  */
+
 .container{
     height: 100vh;
 }
@@ -90,6 +127,7 @@ export default {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 22px;
     border: none;
+    text-align: center;
 }
 .form > div > input:nth-child(1){
     margin-bottom: 30px;
@@ -105,8 +143,47 @@ export default {
     border-radius: 22px;
     border: none;
     color: white;
+    cursor: pointer;
+    
+    transition: 1s;
 }
-textarea:focus, input:focus{
-    outline: none;
+.form > div > button:nth-child(1):hover{
+    background: #7C7CdF;
+}
+.label{
+    font-family: Mirza;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 5px;
+}
+.line{
+    background: #E3E3E3;
+    padding: 1px;
+    width: 80%;
+    border: none;
+    margin-bottom: 30px;
+}
+.error{
+    position: absolute;
+    top: 13vh;
+    text-align: center;
+    color: wheat;
+    background: firebrick;
+    width: 258px;
+}
+.top-line{
+    width: 176px;
+    height: 8px;
+    left: 314px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 14px;
+    margin-bottom: 6px;
+    margin-left: 41px;
 }
 </style>

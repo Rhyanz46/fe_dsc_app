@@ -62,7 +62,7 @@ export default {
 }
 
 .filter-list:hover{
-    background: plum;
+    background: #868686;
     color: white;
 }
 

@@ -40,7 +40,7 @@ export default {
     data: function(){
         return {
             menu: "filter",
-            upload_menu: true
+            upload_menu: false
         }
     },
     methods: {

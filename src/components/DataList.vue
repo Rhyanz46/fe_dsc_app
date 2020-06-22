@@ -11,15 +11,6 @@
 </template>
 
 <style scoped>
-/* .data{
-    width: 805px;
-    height: 406px;
-    left: -1px;
-    top: 0px;
-    border-radius: 10px;
-    padding: 10px;
-    background: #4D527E;
-} */
 .table-data{
     border-spacing: 0px;
 }
