@@ -21,6 +21,8 @@
 </template>
 
 <script>
+import { LOGIN } from "@/store/urls";
+
 export default {
     name: "Login",
     data: function(){
@@ -36,7 +38,7 @@ export default {
                 this.error = "masukkan username dan password"
                 return
             }
-            this.$axios.post('http://localhost:5000/user/login',{
+            this.$axios.post(LOGIN,{
                 username: this.username, 
                 password: this.password
             }).then((res)=>{

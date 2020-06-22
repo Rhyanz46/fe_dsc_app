@@ -22,7 +22,7 @@
                 <div class="filter-list wrapper-center" @click="switch_modal('jenis_penjualan')">Retail</div>
             </div>
         </div>
-        <FilterModal v-if="modal" @switch_modal="switch_modal(null)" v-bind:selected="selected"/>
+        <FilterModal v-if="modal" v-bind:selected="selected"/>
     </div> 
 </template>
 

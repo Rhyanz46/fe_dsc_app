@@ -40,13 +40,18 @@ export default {
     data: function(){
         return {
             menu: "filter",
-            upload_menu: false
+            upload_menu: true
         }
     },
     methods: {
         change_menu: function(key, value){
             if(typeof value == 'boolean'){
                 if(this.upload_menu == false){
+                    this.$children[0].modal = false
+                }
+            }
+            if(value == 'filter'){
+                if (this.$children[0].modal){
                     this.$children[0].modal = false
                 }
             }

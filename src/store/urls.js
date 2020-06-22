@@ -1,7 +1,8 @@
-export let PORT = ':8089'
+export let PORT = ':5000'
 export let BASE_URL = window.location.protocol + "//" + window.location.hostname + PORT
 
 export let USER = '/user'
+export let LOGIN = '/user/login'
 export let RANDOM = '/undian/get-random-phone'
 export let CALLED_SELECTED = '/undian/called-selected'
 export let PHONE_DETAIL = '/undian/phone-detail'
