@@ -23,25 +23,9 @@
 export default {
     name: "FilterModal",
     props: [
-        'selected'
+        'selected',
+        'data'
     ],
-    data: function(){
-        return {
-            data: [
-                {name: this.$props.selected, id:1},
-                {name: this.$props.selected, id:2},
-                {name: this.$props.selected, id:3},
-                {name: this.$props.selected, id:4},
-                {name: this.$props.selected, id:5},
-                {name: this.$props.selected, id:6},
-                {name: this.$props.selected, id:7},
-                {name: this.$props.selected, id:8},
-                {name: this.$props.selected, id:9},
-                {name: this.$props.selected, id:10},
-                {name: this.$props.selected, id:11},
-            ]
-        }
-    },
     methods: {
         real_name: function(field_name){
             return field_name.replace("_"," ").toUpperCase()

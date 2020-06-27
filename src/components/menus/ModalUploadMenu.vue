@@ -4,7 +4,10 @@
             <div class="modal-content wrapper-center">
                 <div>
                     <div class="container-date"><input type="date" v-model="date"></div>
-                    <div class="btn-file"><font-awesome-icon icon="file-alt" size="2x"/> <input type="file"></div>
+                    <div class="btn-file">
+                        <font-awesome-icon icon="file-alt" size="2x"/> 
+                        <input type="file" ref="file" @change="handleFileUpload">
+                    </div>
                     <div class="container-btn-upload">
                         <button @click="upload" class="btn-upload">Upload</button>
                     </div>
@@ -15,23 +18,40 @@
 </template>
 
 <script>
+import { REPORT } from "@/store/urls";
+
 export default {
     name: 'ModalUploadMenu',
     data: function(){
         let today_obj = new Date()
         let month = today_obj.getMonth()+1;
-        if (String(month).length == 1){
-            month = `0${month}`
-        }
+        if (String(month).length == 1){month = `0${month}`}
         let today = `${today_obj.getFullYear()}-${month}-${today_obj.getDate()}`;
-        console.log(today)
+
         return {
-            date:  today
+            date: today,
+            file: ''
         }
     },
     methods: {
         upload: function(){
-            console.log("wow")
+            let formData = new FormData();
+            if (this.file == ''){
+                console.log("gagal")
+                return
+            }
+            formData.append('date', this.date)
+            formData.append('file', this.file)
+            this.$axios.post(REPORT, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            }).then((res)=>{
+                console.log(res)
+            })
+        },
+        handleFileUpload(){
+            this.file = this.$refs.file.files[0];
         }
     }
 }

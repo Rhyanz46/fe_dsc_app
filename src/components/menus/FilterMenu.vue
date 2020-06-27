@@ -7,7 +7,7 @@
             </div>
             <div class="menus-container">
                 <div class="filter-list wrapper-center" @click="switch_modal('kecamatan')">Kecamatan</div>
-                <div class="filter-list wrapper-center" @click="switch_modal('sales_force')">Sales Force</div>
+                <div class="filter-list wrapper-center" @click="switch_modal('salesforce')">Salesforce</div>
             </div>
             <div class="menus-container">
                 <div></div>
@@ -22,12 +22,13 @@
                 <div class="filter-list wrapper-center" @click="switch_modal('jenis_penjualan')">Retail</div>
             </div>
         </div>
-        <FilterModal v-if="modal" v-bind:selected="selected"/>
+        <FilterModal v-if="modal" v-bind:selected="selected" v-bind:data="data"/>
     </div> 
 </template>
 
 <script>
 import FilterModal from "@/components/menus/filter/Modal";
+import { DATA_BY_FIELD, URL_BY_FIELD } from "@/store/static_data";
 
 export default {
     name: "FilterMenu",
@@ -37,11 +38,23 @@ export default {
     data: function (){
         return {
             modal: false,
-            selected: null
+            selected: null,
+            data: [
+                {name: "loading", id:1},
+            ]
         }
     },
     methods: {
         switch_modal: function(field){
+            if(URL_BY_FIELD[field]){
+                this.$axios.get(URL_BY_FIELD[field]).then((res)=>{
+                    this.data = res.data.data
+                }).catch((err)=>{
+                    console.log(err.response.message)
+                })
+            }else{
+                this.data = DATA_BY_FIELD[field]
+            }
             if(this.modal == false){
                 this.selected = field
             }

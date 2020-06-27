@@ -3,9 +3,9 @@ export let BASE_URL = window.location.protocol + "//" + window.location.hostname
 
 export let USER = '/user'
 export let LOGIN = '/user/login'
-export let RANDOM = '/undian/get-random-phone'
-export let CALLED_SELECTED = '/undian/called-selected'
-export let PHONE_DETAIL = '/undian/phone-detail'
+export let STACK_KABUPATEN = '/stack/kabupaten'
+export let STACK_SUPERVISOR = '/stack/supervisor'
+export let STACK_KECAMATAN = '/stack/kecamatan'
+export let STACK_SALESFORCE = '/stack/salesforce'
 
-export let GIFT = '/gift'
-export let DATA = '/data'
+export let REPORT = '/data/report'
