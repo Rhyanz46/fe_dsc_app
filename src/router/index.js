@@ -30,7 +30,23 @@ export default function(Guard){
           },
           {
             path: '',
-            component: () => import('../views/Dashboard.vue')    
+            redirect: "/report"
+          },
+          {
+            path: 'report',
+            name: 'Dashboard.index',
+            component: () => import('../views/Dashboard.vue')   ,
+            children: [
+              {
+                path: '',
+                name: 'name',
+                component: () => import('../components/data/Kabupaten.vue')    
+              },
+              {
+                path: 'outlet',
+                component: () => import('../components/data/Outlet.vue')    
+              }  
+            ] 
           }
         ]
       }
