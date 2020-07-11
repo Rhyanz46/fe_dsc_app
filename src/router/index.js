@@ -25,27 +25,38 @@ export default function(Guard){
         component: () => import('../layout/Default.vue'),
         children: [
           {
-            path: 'settings',
-            component: () => import('../views/Settings.vue')    
-          },
-          {
             path: '',
             redirect: "/report"
           },
           {
+            path: 'settings',
+            component: () => import('../views/Settings.vue')    
+          },
+          {
             path: 'report',
             name: 'Dashboard.index',
-            component: () => import('../views/Dashboard.vue')   ,
+            component: () => import('../views/Dashboard.vue'),
             children: [
               {
                 path: '',
-                name: 'name',
+                redirect: "/report/kabupaten"
+              },
+              {
+                path: 'kabupaten',
                 component: () => import('../components/data/Kabupaten.vue')    
               },
               {
                 path: 'outlet',
                 component: () => import('../components/data/Outlet.vue')    
-              }  
+              },
+              {
+                path: 'salesforce',
+                component: () => import('../components/data/Salesforce.vue')    
+              },
+              {
+                path: 'supervisor',
+                component: () => import('../components/data/Supervisor.vue')    
+              }
             ] 
           }
         ]
