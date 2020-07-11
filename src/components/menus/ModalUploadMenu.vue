@@ -3,7 +3,7 @@
         <div class="container wrapper-center">
             <div class="modal-content wrapper-center">
                 <div>
-                    <div class="container-date"><input type="date" v-model="date"></div>
+                    <!-- <div class="container-date"><input type="date" v-model="date"></div> -->
                     <div class="btn-file">
                         <font-awesome-icon icon="file-alt" size="2x"/> 
                         <input type="file" ref="file" @change="handleFileUpload">
@@ -79,7 +79,7 @@ export default {
     border-radius: 10px;
     padding: 10px;
 }
-input[type=date] {
+/* input[type=date] {
   height: 35px;
   margin: 0 auto;
   width: 96%;
@@ -94,7 +94,7 @@ input[type=date] {
   padding: 0 3px;
   color: #674040;
   cursor: pointer;
-}
+} */
 .btn-file {
   position: relative;
   overflow: hidden;
@@ -138,9 +138,9 @@ textarea:focus, input:focus, button:focus{
     outline: none;
     text-align: center;
 }
-.container-date{
+/* .container-date{
     cursor: pointer;
-}
+} */
 
 
 ::-webkit-search-cancel-button,
