@@ -1,5 +1,5 @@
 <template>
     <div>
-        Data
+        Settings
     </div>
 </template>
