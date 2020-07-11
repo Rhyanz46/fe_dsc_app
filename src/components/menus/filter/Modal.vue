@@ -12,7 +12,7 @@
                 </div>
                 <div class="container-list">
                     <div class="list" :key="item.id" v-for="item in data">{{item.name}}</div>
-                    <div>terus</div>
+                    <div></div>
                 </div>
             </div>
         </div>

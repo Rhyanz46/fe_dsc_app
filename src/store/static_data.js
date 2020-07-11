@@ -1,4 +1,7 @@
-import { STACK_KABUPATEN, STACK_SUPERVISOR, STACK_KECAMATAN, STACK_SALESFORCE } from "@/store/urls";
+import { 
+    STACK_KABUPATEN, STACK_SUPERVISOR, 
+    STACK_KECAMATAN, STACK_SALESFORCE 
+} from "@/store/urls";
 
 export let URL_BY_FIELD = {
     kabupaten: STACK_KABUPATEN,
@@ -9,24 +12,27 @@ export let URL_BY_FIELD = {
 
 export let DATA_BY_FIELD = {
     kategori_outlet: [
-        {name: "kategori outlet", id:1},
-        {name: "kategori outlet 1", id:2},
-        {name: "kategori outlet 1212", id:3},
-        {name: "kategori outlet dede", id:4}
+        {name: "SILVER", id:1},
+        {name: "PLATINUM", id:2},
+        {name: "GOLD", id:3},
+        {name: "BRONZE", id:4}
     ],
     hari_kunjungan: [
-        {name: "senin", id:1},
-        {name: "selasa", id:2},
-        {name: "rabu", id:3},
-        {name: "kamis", id:4},
-        {name: "jumat", id:5},
-        {name: "sabtu", id:6},
-        {name: "minggu", id:7}
+        {name: "Senin", id:1},
+        {name: "Selasa", id:2},
+        {name: "Rabu", id:3},
+        {name: "Kamis", id:4},
+        {name: "Jumat", id:5},
+        {name: "Sabtu", id:6},
+        {name: "Minggu", id:7}
     ],
     jenis_penjualan: [
-        {name: "Retail", id: 1}
+        {name: "Retail", id: 1},
+        {name: "Wholesales", id: 2},
     ],
     device: [
-        {name: "WOW", id: 1}
+        {name: "REG", id: 1},
+        {name: "OSAKA", id: 2},
+        {name: "DEV", id: 3}
     ]
 }
