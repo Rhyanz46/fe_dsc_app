@@ -9,3 +9,4 @@ export let STACK_KECAMATAN = '/stack/kecamatan'
 export let STACK_SALESFORCE = '/stack/salesforce'
 
 export let REPORT = '/data/report'
+export let REPORT_KABUPATEN_NGRS_PERFORMANCE = '/report/NGRS/kabupaten/performance'
