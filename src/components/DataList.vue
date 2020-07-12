@@ -1,17 +1,28 @@
 <template>
     <div class="flex-container-table-data1212">
         <router-view></router-view>
-        <div class="menu-table-data1212">
-            <div>Outlet</div>
-            <div>Kabupaten</div>
-            <div>Supervisor</div>
-            <div>Salesforce</div>
+        <div class="menu-table-data1212" v-show="show_list_menu">
+            <router-link to="/report/kabupaten">Kabupaten</router-link>
+            <router-link to="/report/supervisor">Supervisor</router-link>
+            <router-link to="/report/salesforce">Salesforce</router-link>
+            <router-link to="/report/outlet">Outlet</router-link>
         </div>
-        <div class="btn-menu-table-data1212">
+        <div class="btn-menu-table-data1212" @click="show_list_menu = !show_list_menu">
              <font-awesome-icon icon="layer-group" size="lg"/> 
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    name: 'DataList',
+    data: function(){
+        return {
+            show_list_menu: false
+        }
+    }
+}
+</script>
 
 <style>
 .flex-container-table-data1212 {
@@ -72,16 +83,24 @@
     border-radius: 10px;
     bottom: 58px;
     left: 48px;
+    display: grid;
 }
-.menu-table-data1212 > div {
+.menu-table-data1212 > a {
+    color: black;
+    text-decoration: none;
+}
+.menu-table-data1212 > a {
     padding: 10px;
 }
-.menu-table-data1212 > div:hover {
+.menu-table-data1212 > a:hover {
     background: #704848;
     cursor: pointer;
     color: white;
 }
-.menu-table-data1212 > div:nth-child(2), div:nth-child(3) {
+.menu-table-data1212 > a:nth-child(2){
     margin: 10px 0px 10px 0px;
+}
+.menu-table-data1212 > a:nth-child(3) {
+    margin: 0px 0px 10px 0px;
 }
 </style>
