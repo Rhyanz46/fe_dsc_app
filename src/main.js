@@ -5,13 +5,13 @@ import Guard from "./middleware";
 import Prototypes from "./utils/prototypes";
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faUserSecret, faAlignJustify, faPlus, faTimesCircle, faFileUpload, faFilter, faBars, faFileAlt } from '@fortawesome/free-solid-svg-icons'
+import { faUserSecret, faAlignJustify, faPlus, faTimesCircle, faFileUpload, faFilter, faBars, faFileAlt, faLayerGroup } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 library.add(
   faUserSecret, faAlignJustify, faPlus,
   faTimesCircle, faFileUpload, faFilter,
-  faBars, faFileAlt
+  faBars, faFileAlt, faLayerGroup
 )
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
