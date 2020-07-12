@@ -46,8 +46,10 @@ export default {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
-            }).then((res)=>{
-                console.log(res)
+            }).then(()=>{
+                alert("sukses")
+            }).catch(()=>{
+                alert("gagal")
             })
         },
         handleFileUpload(){
