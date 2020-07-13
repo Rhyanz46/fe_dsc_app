@@ -29,8 +29,18 @@ export default function(Guard){
             redirect: "/report"
           },
           {
-            path: 'settings',
-            component: () => import('../views/Settings.vue')    
+            path: 'data',
+            component: () => import('../views/Common.vue'),
+            children: [
+              {
+                path: '',
+                redirect: "/data/outlets"
+              },
+              {
+                path: 'outlets',
+                component: () => import('../components/DataOutlet.vue')
+              }
+            ] 
           },
           {
             path: 'report',
