@@ -5,7 +5,7 @@
             </div>
             <div class="menus-container">
                 <div class="filter-list wrapper-center">Upload History</div>
-                <div class="filter-list wrapper-center">Data Outlet</div>
+                <div class="filter-list wrapper-center" @click="to_data_outlet">Data Outlet</div>
             </div>
             <div class="menus-container">
             </div>
@@ -26,6 +26,9 @@ export default {
         logout: function(){
             window.localStorage.removeItem('token')
             window.location.reload()
+        },
+        to_data_outlet: function(){
+            this.$router.replace({path: '/data/outlets'})
         }
     }
 }

@@ -38,7 +38,7 @@ export default function(Guard){
               },
               {
                 path: 'outlets',
-                component: () => import('../components/DataOutlet.vue')
+                component: () => import('../components/OutletMenu.vue')
               }
             ] 
           },
