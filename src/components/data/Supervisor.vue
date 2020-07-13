@@ -1,6 +1,6 @@
 <template>
    <div class="row-table-data1212">
-        VF 8GB PERFORMANCE
+        DIGIPOS PERFORMANCE
         <table class="table-data1212">
             <tr>
                 <th>No</th>
