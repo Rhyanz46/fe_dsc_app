@@ -1,27 +1,42 @@
 <template>
     <div>
-        <div>
-            <table>
-                <tr>
-                    <th>Outlet ID</th>
-                    <th>Name</th>
-                    <th>Last Month Target</th>
-                    <th>This Mont Target</th>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>SUmbeeerr Cell</td>
-                    <td>100</td>
-                    <td>10</td>
-                </tr>
-            </table>
-        </div>
+        <table>
+            <tr>
+                <th>Outlet ID</th>
+                <th>Name</th>
+                <th>Last Month Target</th>
+                <th>This Mont Target</th>
+            </tr>
+            <tr :key="outlet.index" v-for="outlet in data">
+                <td>{{outlet.outlet_id}}</td>
+                <td>{{outlet.name}}</td>
+                <td>{{outlet.last_month}}</td>
+                <td>{{outlet.this_month}}</td>
+            </tr>
+        </table>
     </div>
 </template>
 
 <script>
+// OUTLET_TARGET
+import { MY_OUTLET_TARGET } from "@/store/urls";
 export default {
-    name: 'AddTarget'
+    name: 'AddTarget',
+    data: function(){
+        return {
+            data: []
+        }
+    },
+    methods: {
+        get_target: function(){
+            this.$axios.get(MY_OUTLET_TARGET).then((res)=>{
+                this.data = res.data.data
+            })
+        }
+    },
+    mounted: function(){
+        this.get_target()
+    }
 }
 </script>
 
@@ -43,4 +58,5 @@ table td, th{
     padding: 10px;
     border: 1px solid #ddd;
 }
+table tr:hover {background-color: #ddd;}
 </style>

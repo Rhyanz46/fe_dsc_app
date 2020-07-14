@@ -95,7 +95,7 @@ export default {
     padding: 30px;
     margin: 2px;
     cursor: pointer;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     color: black;
 }
 .list-menu > div:hover {

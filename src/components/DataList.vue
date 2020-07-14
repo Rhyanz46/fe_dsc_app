@@ -51,6 +51,7 @@ export default {
 }
 .table-data1212{
     border-spacing: 0px;
+    width: 80%;
 }
 .table-data1212 th{
     padding: 10px;
