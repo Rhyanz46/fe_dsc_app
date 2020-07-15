@@ -4,13 +4,11 @@
             <div class="menus-container">
             </div>
             <div class="menus-container">
-                <div class="filter-list wrapper-center">Upload History</div>
-                <div class="filter-list wrapper-center" @click="to_data_outlet">Data Outlet</div>
+                <div class="filter-list wrapper-center" @click="to_data_outlet">Menu Lanjutan</div>
             </div>
             <div class="menus-container">
             </div>
             <div class="menus-container" >
-                <div class="filter-list wrapper-center">Pengaturan Akun</div>
                 <div class="filter-list wrapper-center" @click="logout">Keluar</div>
             </div>
             <div class="menus-container">
@@ -35,7 +33,7 @@ export default {
 </script>
 
 <style scoped>
-/* 
+
 .sub-menu{
     background: #FFFFFF;
     margin: 5px 10% 5px 10%;
@@ -87,10 +85,10 @@ export default {
     flex-shrink: 0;
     flex-basis: 90px;
     padding-top: 5px;
-} */
+}
 
 
-
+/* 
 .sub-menu{
     background: #FFFFFF;
     margin: 5px 10% 5px 10%;
@@ -142,6 +140,6 @@ export default {
     flex-shrink: 0;
     flex-basis: 90px;
     padding-top: 5px;
-}
+} */
 
 </style>

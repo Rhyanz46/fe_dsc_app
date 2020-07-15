@@ -3,16 +3,13 @@
         <div class="row-table">
             <div class="list-menu" v-if="!selected">
                 <div @click="selected = 'add_outlet_target'">
-                    Pasang Target Outlet
+                    Outlet List
                 </div>
                 <div>
-                    Hapus Data Terakhir ( on progress )
+                    Upload History
                 </div>
                 <div>
-                    Menu Lain ( on progress )
-                </div>
-                <div>
-                    Menu Lain ( on progress )
+                    Pengaturan Account
                 </div>
             </div>
             <div v-else>
