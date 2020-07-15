@@ -1,6 +1,6 @@
 <template>
     <div class="flex-container">
-        <div class="row-table">
+        <div class="row-table" ref="menu_container">
             <div class="list-menu" v-if="!selected">
                 <div @click="selected = 'add_outlet_target'">
                     Outlet List
@@ -13,7 +13,7 @@
                 </div>
             </div>
             <div v-else>
-                <IndexOutletMenu :selected="selected"/>
+                <IndexOutletMenu :selected="selected" @sub_menu_selected='sub_menu_selected'/>
             </div>
             <div class="close" @click="close">
                 <font-awesome-icon icon="home" size="2x" v-if="!selected"/>
@@ -33,15 +33,27 @@ export default {
     },
     data: function(){
         return {
-            selected: null
+            selected: null,
+            to_left: false
         }
     },
     methods: {
         close: function(){
+            if(this.to_left){
+                this.$refs.menu_container.style.marginRight = "0px"
+            }
             if (this.selected){
                 this.selected = null
             }else{
                 this.$router.replace({path: '/report/kabupaten'})
+            }
+        },
+        sub_menu_selected: function(selected){
+            this.to_left = selected
+            if(selected){
+                this.$refs.menu_container.style.marginRight = "35%"
+            }else{
+                this.$refs.menu_container.style.marginRight = "0px"
             }
         }
     }
@@ -75,6 +87,7 @@ export default {
     min-height: 80vh;
     flex-direction: column;
     position: relative;
+    transition: all 0.5s;
 }
 .close{
     position: absolute;
