@@ -29,15 +29,11 @@ export default function(Guard){
             redirect: "/report"
           },
           {
-            path: 'data',
+            path: 'menu',
             component: () => import('../views/Common.vue'),
             children: [
               {
                 path: '',
-                redirect: "/data/outlets"
-              },
-              {
-                path: 'outlets',
                 component: () => import('../components/OutletMenu.vue')
               }
             ] 
