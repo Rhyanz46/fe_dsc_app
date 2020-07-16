@@ -36,7 +36,6 @@ export default {
     data: function(){
         return {
             show_sub_menu: false,
-            selected: false,
             outlet_id: null,
             data: []
         }
@@ -48,13 +47,10 @@ export default {
             })
         },
         select_outlet: function(outlet_id){
-            this.selected = !this.selected
             this.outlet_id = outlet_id
-            this.$emit('sub_menu_selected', this.selected)
+            this.$emit('sub_menu_selected', true)
             if(!this.show_sub_menu){
-                setTimeout(()=>{this.show_sub_menu = !this.show_sub_menu},300, this)
-            }else{
-                this.show_sub_menu = !this.show_sub_menu
+                setTimeout(()=>{this.show_sub_menu = true},300, this)
             }
         }
     },

@@ -48,9 +48,9 @@ export default {
                 this.$router.replace({path: '/report/kabupaten'})
             }
         },
-        sub_menu_selected: function(selected){
-            this.to_left = selected
-            if(selected){
+        sub_menu_selected: function(is_selected){
+            this.to_left = is_selected
+            if(is_selected){
                 this.$refs.menu_container.style.marginRight = "35%"
             }else{
                 this.$refs.menu_container.style.marginRight = "0px"
