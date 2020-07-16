@@ -1,6 +1,9 @@
 <template>
     <div>
         <div class="sub-menu" v-show="show_sub_menu">
+            <div class="sub-menu-btn-close" @click="close_sub_menu">
+                <font-awesome-icon icon="times-circle" size="lg"/> 
+            </div>
             <div class="sub-menu-desc">
                 Outlet ID : {{outlet_id}}
                 <hr/>
@@ -52,6 +55,11 @@ export default {
             if(!this.show_sub_menu){
                 setTimeout(()=>{this.show_sub_menu = true},300, this)
             }
+        },
+        close_sub_menu: function(){
+            this.outlet_id = null
+            this.$emit('sub_menu_selected', false)
+            this.show_sub_menu = false
         }
     },
     mounted: function(){
@@ -128,5 +136,10 @@ table tr:hover {background-color: #ddd;}
 }
 .sub-menu-body .sub-menu-list:last-child:hover{
     background: #940303;
+}
+.sub-menu-btn-close{
+    position: absolute;
+    right: 9px;
+    cursor: pointer;
 }
 </style>

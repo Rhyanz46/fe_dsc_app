@@ -12,7 +12,7 @@ library.add(
   faUserSecret, faAlignJustify, faPlus,
   faTimesCircle, faFileUpload, faFilter,
   faBars, faFileAlt, faLayerGroup, faHome,
-  faChevronCircleLeft
+  faChevronCircleLeft, faTimesCircle
 )
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
