@@ -1,7 +1,10 @@
 <template>
     <div>
-        <div class="sub-menu" ref="sub_menu" v-show="show_sub_menu">
-            <div class="sub-menu-desc"></div>
+        <div class="sub-menu" v-show="show_sub_menu">
+            <div class="sub-menu-desc">
+                Outlet ID : {{outlet_id}}
+                <hr/>
+            </div>
             <div class="sub-menu-body">
                 <div class="sub-menu-list">Pasang Target</div>
                 <div class="sub-menu-list">Edit Target</div>
@@ -34,6 +37,7 @@ export default {
         return {
             show_sub_menu: false,
             selected: false,
+            outlet_id: null,
             data: []
         }
     },
@@ -45,14 +49,11 @@ export default {
         },
         select_outlet: function(outlet_id){
             this.selected = !this.selected
-            console.log(`select ${outlet_id}`)
-            // console.log(this.$refs.sub_menu)
+            this.outlet_id = outlet_id
             this.$emit('sub_menu_selected', this.selected)
             if(!this.show_sub_menu){
-                console.log("google")
                 setTimeout(()=>{this.show_sub_menu = !this.show_sub_menu},300, this)
             }else{
-                console.log("wowo")
                 this.show_sub_menu = !this.show_sub_menu
             }
         }
@@ -103,5 +104,33 @@ table tr:hover {background-color: #ddd;}
     right: -74%;
     min-height: 85vh;
     transition: all 0.5s;
+}
+.sub-menu-desc{
+    padding: 10px;
+}
+.sub-menu-body{
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.sub-menu-body .sub-menu-list{
+    background: #2c2f4e;
+    padding: 10px;
+    margin-bottom: 2px;
+    cursor: pointer;
+}
+.sub-menu-body .sub-menu-list:hover{
+    background: #161827;
+    box-shadow: 3px 5px 19px 0px rgba(0,0,0,0.75);
+}
+.sub-menu-body .sub-menu-list:last-child:hover{
+    background: #940303;
 }
 </style>
