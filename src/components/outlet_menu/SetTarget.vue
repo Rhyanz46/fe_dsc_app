@@ -4,7 +4,7 @@
             <div>
                 <div>Product Name :</div>
                 <div>
-                    <select v-model="product_selected">
+                    <select class="form-select-prodcut-list" v-model="product_selected">
                         <option value="product_default_djueux">Pilih Product</option>
                         <option :key="product.name" v-for="product in product_list">
                             {{product.name}}
@@ -15,7 +15,7 @@
             <div>
                 <div>Target Untuk Waktu : </div>
                 <div>
-                    <select v-model="bulan_selected">
+                    <select class="form-select-time" v-model="bulan_selected">
                         <option value="bulan">Bulan</option>
                         <option 
                             :key="bulan" 
@@ -23,7 +23,7 @@
                             {{bulan}}
                         </option>
                     </select>
-                    <select v-model="tahun_selected">
+                    <select class="form-select-time" v-model="tahun_selected">
                         <option value="tahun">Tahun</option>
                         <option 
                             :key="tahun" 
@@ -35,10 +35,10 @@
             </div>
             <div>
                 <div>Jumlah : </div>
-                <input v-model.number="target_value" type="number">
+                <input class="form-input-jumlah" v-model.number="target_value" type="number">
             </div>
             <div>
-                <div><button @click="set_target">Pasang</button></div>
+                <div><button class="form-button-submit" @click="set_target">Pasang</button></div>
             </div>
         </div>
     </div>
@@ -122,9 +122,30 @@ export default {
 </script>
 
 <style scoped>
-a{
+.form-select-prodcut-list{
     padding: 10px;
     width: 100%;
     cursor: pointer;
+    border: 0px;
+}
+.form-select-time{
+    width: 30%;
+    margin-right: 10px;
+    padding: 10px;
+    cursor: pointer;
+    border: 0px;
+}
+.form-input-jumlah{
+    width: 30%;
+    background: #dddddd;
+    padding: 10px;
+    border: 0px;
+}
+.form-button-submit{
+    width: 100%;
+    padding: 10px;
+    border: 0px;
+    margin-top: 10px;
+    background: #dddddd;
 }
 </style>
