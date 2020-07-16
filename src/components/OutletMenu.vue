@@ -109,8 +109,6 @@ export default {
     color: black;
 }
 .list-menu > div:hover {
-    color: white;
-    background: rgb(211,210,216);
-    background: linear-gradient(0deg, rgba(211,210,216,0.8925945378151261) 9%, rgba(9,31,70,0.654499299719888) 22%, rgba(211,210,216,0) 47%);
+    background: #bcb8d2;
 }
 </style>

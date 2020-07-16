@@ -7,6 +7,7 @@ export let STACK_KABUPATEN = '/stack/kabupaten'
 export let STACK_SUPERVISOR = '/stack/supervisor'
 export let STACK_KECAMATAN = '/stack/kecamatan'
 export let STACK_SALESFORCE = '/stack/salesforce'
+export let STACK_PRODUCT = '/stack/product'
 
 export let MY_OUTLET_TARGET = '/stack/outlet/target'
 export let OUTLET_TARGET = (outlet_id) => {

@@ -9,12 +9,17 @@
                 <hr/>
             </div>
             <div class="sub-menu-body">
-                <div class="sub-menu-list" @click="sub_menu_selected = 'set_target'">Pasang Target</div>
-                <div class="sub-menu-list">Edit Target</div>
-                <div class="sub-menu-list">Delete</div>
+                <div class="sub-menu-list" @click="select_sub_menu('edit_outlet')">Edit Outlet</div>
+                <div class="sub-menu-list" @click="select_sub_menu('set_target')">Pasang Target</div>
+                <div class="sub-menu-list" @click="select_sub_menu('edit_target')">Edit Target</div>
+                <div class="sub-menu-list" @click="select_sub_menu('delete_outlet')">Delete Outlet</div>
             </div>
-            <div class="sub-menu-components">
-                <SetTarget v-if="sub_menu_selected == 'set_target'"/>
+            <div class="sub-menu-components" v-if="sub_menu_selected != null">
+                <hr/>
+                <SetTarget 
+                    @refresh_outlet_list="get_target"
+                    :outlet_id='outlet_id' 
+                    v-if="sub_menu_selected == 'set_target'"/>
             </div>
         </div>
         <table>
@@ -35,7 +40,6 @@
 </template>
 
 <script>
-// OUTLET_TARGET
 import SetTarget from "@/components/outlet_menu/SetTarget";
 import { MY_OUTLET_TARGET } from "@/store/urls";
 export default {
@@ -53,6 +57,7 @@ export default {
     },
     methods: {
         get_target: function(){
+            console.log("this.get_target()")
             this.$axios.get(MY_OUTLET_TARGET).then((res)=>{
                 this.data = res.data.data
             })
@@ -68,6 +73,10 @@ export default {
             this.outlet_id = null
             this.$emit('sub_menu_selected', false)
             this.show_sub_menu = false
+            this.sub_menu_selected = null
+        },
+        select_sub_menu: function(sub_menu){
+            this.sub_menu_selected = sub_menu
         }
     },
     mounted: function(){
@@ -149,5 +158,8 @@ table tr:hover {background-color: #ddd;}
     position: absolute;
     right: 9px;
     cursor: pointer;
+}
+.sub-menu-components{
+    padding: 10px;
 }
 </style>
