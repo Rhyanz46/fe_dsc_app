@@ -9,9 +9,12 @@
                 <hr/>
             </div>
             <div class="sub-menu-body">
-                <div class="sub-menu-list">Pasang Target</div>
+                <div class="sub-menu-list" @click="sub_menu_selected = 'set_target'">Pasang Target</div>
                 <div class="sub-menu-list">Edit Target</div>
                 <div class="sub-menu-list">Delete</div>
+            </div>
+            <div class="sub-menu-components">
+                <SetTarget v-if="sub_menu_selected == 'set_target'"/>
             </div>
         </div>
         <table>
@@ -33,12 +36,17 @@
 
 <script>
 // OUTLET_TARGET
+import SetTarget from "@/components/outlet_menu/SetTarget";
 import { MY_OUTLET_TARGET } from "@/store/urls";
 export default {
     name: 'OutletList',
+    components: {
+        SetTarget
+    },
     data: function(){
         return {
             show_sub_menu: false,
+            sub_menu_selected: null,
             outlet_id: null,
             data: []
         }
